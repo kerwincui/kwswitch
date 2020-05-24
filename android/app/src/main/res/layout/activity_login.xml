@@ -1,0 +1,113 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayoutLogin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.espressif.kwswitch.LoginActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/closeBtn"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <EditText
+        android:id="@+id/accountTxt"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:drawableLeft="@android:drawable/ic_menu_myplaces"
+        android:ems="10"
+        android:hint="请输入账号"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <EditText
+        android:id="@+id/passwordTxt"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:drawableLeft="@android:drawable/ic_menu_view"
+        android:ems="10"
+        android:hint="请输入密码"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/accountTxt"
+        app:layout_constraintTop_toBottomOf="@+id/accountTxt" />
+
+    <EditText
+        android:id="@+id/captchaTxt"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:drawableLeft="@android:drawable/ic_menu_send"
+        android:ems="10"
+        android:hint="输入验证码"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/passwordTxt"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTxt" />
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="14dp"
+        android:text="登 录"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/rememberChk"
+        app:layout_constraintTop_toBottomOf="@+id/rememberChk" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="登录"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <ImageButton
+        android:id="@+id/captureBtn"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/white"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="@+id/passwordTxt"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTxt" />
+
+    <CheckBox
+        android:id="@+id/rememberChk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="记住密码"
+        app:layout_constraintStart_toStartOf="@+id/captchaTxt"
+        app:layout_constraintTop_toBottomOf="@+id/captchaTxt" />
+
+    <ImageButton
+        android:id="@+id/closeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="@color/white"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

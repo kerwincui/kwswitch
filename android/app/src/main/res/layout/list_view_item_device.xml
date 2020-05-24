@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:layout_weight="1"
+        android:paddingEnd="10dp"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:id="@+id/deviceNameTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="智能浇灌"
+            android:textColor="#006dfe"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/sensorTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="温湿度"
+            android:textColor="@android:color/holo_orange_dark"
+            app:layout_constraintStart_toEndOf="@+id/categoryTxt"
+            app:layout_constraintTop_toTopOf="@+id/categoryTxt" />
+
+        <TextView
+            android:id="@+id/categoryTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="单路"
+            android:textColor="@android:color/holo_orange_dark"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/deviceNameTxt" />
+
+        <TextView
+            android:id="@+id/stateTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="● 在线"
+            android:textColor="#4CAF50"
+            app:layout_constraintStart_toEndOf="@+id/sensorTxt"
+            app:layout_constraintTop_toTopOf="@+id/sensorTxt" />
+
+        <Switch
+            android:id="@+id/switchA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:switchMinWidth="80dp"
+            android:text="开关A"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/deviceNameTxt" />
+
+        <Switch
+            android:id="@+id/switchB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:switchMinWidth="80dp"
+            android:text="开关B"
+            app:layout_constraintEnd_toEndOf="@+id/switchA"
+            app:layout_constraintTop_toBottomOf="@+id/switchA"
+            tools:checked="true" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/device" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

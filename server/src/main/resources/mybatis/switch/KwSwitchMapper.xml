@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.kwswitch.mapper.KwSwitchMapper">
+    
+    <resultMap type="KwSwitch" id="KwSwitchResult">
+        <result property="deviceId"    column="device_id"    />
+        <result property="deviceName"    column="device_name"    />
+        <result property="switchA"    column="switch_a"    />
+        <result property="switchB"    column="switch_b"    />
+        <result property="apiKey"    column="api_key"    />
+        <result property="state"    column="state"    />
+        <result property="sensor"    column="sensor"    />
+        <result property="category"    column="category"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="userId"    column="user_id"    />
+        <result property="userName"    column="user_name"    />
+        <result property="remark"    column="remark"    />
+        <result property="delFlg"    column="del_flg"    />
+    </resultMap>
+
+    <sql id="selectKwSwitchVo">
+        select device_id, device_name, switch_a,switch_b, api_key, state, sensor, category,update_time, create_time, user_id, user_name, remark, del_flg from kw_switch
+    </sql>
+
+    <select id="selectKwSwitchList" parameterType="KwSwitch" resultMap="KwSwitchResult">
+        <include refid="selectKwSwitchVo"/>
+        <where>  
+            <if test="deviceName != null  and deviceName != ''"> and device_name like concat('%', #{deviceName}, '%')</if>
+            <if test="state != null  and state != ''"> and state = #{state}</if>
+            <if test="sensor != null "> and sensor = #{sensor}</if>
+            <if test="category != null "> and category = #{category}</if>
+            <if test="params.beginCreateTime != null and params.beginCreateTime != '' and params.endCreateTime != null and params.endCreateTime != ''"> and create_time between #{params.beginCreateTime} and #{params.endCreateTime}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="userName != null  and userName != ''"> and user_name like concat('%', #{userName}, '%')</if>
+        </where>
+    </select>
+    
+    <select id="selectKwSwitchById" parameterType="Long" resultMap="KwSwitchResult">
+        <include refid="selectKwSwitchVo"/>
+        where device_id = #{deviceId}
+    </select>
+        
+    <insert id="insertKwSwitch" parameterType="KwSwitch" useGeneratedKeys="true" keyProperty="deviceId">
+        insert into kw_switch
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="deviceName != null  and deviceName != ''">device_name,</if>
+            <if test="switchA != null  and switchA != ''">switch_a,</if>
+            <if test="switchB != null  and switchB != ''">switch_b,</if>
+            <if test="apiKey != null  and apiKey != ''">api_key,</if>
+            <if test="state != null  and state != ''">state,</if>
+            <if test="sensor != null ">sensor,</if>
+            <if test="category != null ">category,</if>
+            <if test="updateTime != null ">update_time,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="userId != null ">user_id,</if>
+            <if test="userName != null  and userName != ''">user_name,</if>
+            <if test="remark != null  and remark != ''">remark,</if>
+            <if test="delFlg != null  and delFlg != ''">del_flg,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="deviceName != null  and deviceName != ''">#{deviceName},</if>
+            <if test="switchA != null  and switchA != ''">#{switchA},</if>
+            <if test="switchB != null  and switchB != ''">#{switchB},</if>
+            <if test="apiKey != null  and apiKey != ''">#{apiKey},</if>
+            <if test="state != null  and state != ''">#{state},</if>
+            <if test="sensor != null ">#{sensor},</if>
+            <if test="category != null ">#{category},</if>
+            <if test="updateTime != null ">#{updateTime},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="userId != null ">#{userId},</if>
+            <if test="userName != null  and userName != ''">#{userName},</if>
+            <if test="remark != null  and remark != ''">#{remark},</if>
+            <if test="delFlg != null  and delFlg != ''">#{delFlg},</if>
+         </trim>
+    </insert>
+
+    <update id="updateKwSwitch" parameterType="KwSwitch">
+        update kw_switch
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="deviceName != null  and deviceName != ''">device_name = #{deviceName},</if>
+            <if test="switchA != null  and switchA != ''">switch_a = #{switchA},</if>
+            <if test="switchB != null  and switchB != ''">switch_b = #{switchB},</if>
+            <if test="apiKey != null  and apiKey != ''">api_key = #{apiKey},</if>
+            <if test="state != null  and state != ''">state = #{state},</if>
+            <if test="sensor != null ">sensor = #{sensor},</if>
+            <if test="category != null ">category = #{category},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+            <if test="updateTime != null ">update_time = #{updateTime},</if>
+            <if test="userId != null ">user_id = #{userId},</if>
+            <if test="userName != null  and userName != ''">user_name = #{userName},</if>
+            <if test="remark != null  and remark != ''">remark = #{remark},</if>
+            <if test="delFlg != null  and delFlg != ''">del_flg = #{delFlg},</if>
+        </trim>
+        where device_id = #{deviceId}
+    </update>
+
+    <delete id="deleteKwSwitchById" parameterType="Long">
+        delete from kw_switch where device_id = #{deviceId}
+    </delete>
+
+    <delete id="deleteKwSwitchByIds" parameterType="String">
+        delete from kw_switch where device_id in 
+        <foreach item="deviceId" collection="array" open="(" separator="," close=")">
+            #{deviceId}
+        </foreach>
+    </delete>
+    
+</mapper>

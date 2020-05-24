@@ -1,0 +1,90 @@
+version: '2'
+
+services:
+
+    java:
+        image: registry.cn-chengdu.aliyuncs.com/kerwincui/java:8
+        container_name: kw-java
+        network_mode: bridge
+        restart: always
+        ports: 
+            - "8080:8080"
+        depends_on:
+            - mysql
+            - redis
+            - mongo
+            - mosquitto
+        links:
+            - mysql
+            - redis
+            - mongo
+            - mosquitto
+        volumes:
+            - "/etc/localtime:/etc/localtime" 
+            - "/var/data/server/kwswitch:/kwswitch"
+
+    nginx:
+        image: registry.cn-chengdu.aliyuncs.com/kerwincui/nginx:1.18.0
+        container_name: kw-nginx
+        network_mode: bridge
+        restart: always
+        ports:  
+            - "80:80"
+        depends_on:
+            - java
+        links:
+            - java
+        volumes:
+            - /var/data/nginx/html:/usr/share/nginx/html 
+            - /var/data/nginx/nginx.conf:/etc/nginx/nginx.conf
+            - /var/data/nginx/error.log:/var/log/nginx/error.log
+
+    mysql:
+        image: registry.cn-chengdu.aliyuncs.com/kerwincui/mysql:5.7
+        container_name: kw-mysql
+        network_mode: bridge
+        restart: always
+        ports:
+            - 3306:3306
+        environment: 
+            MYSQL_ROOT_PASSWORD: 1a2b3c4D
+            MYSQL_DATABASE: kwswitch
+            lower_case_table_names: 1
+        volumes:
+            - "/var/data/mysql/mysql:/var/lib/mysql"
+
+    redis:
+        image: registry.cn-chengdu.aliyuncs.com/kerwincui/redis:5.0.7
+        container_name: kw-redis
+        network_mode: bridge
+        restart: always
+        ports:  
+            - 6379:6379
+        volumes:
+            - "/var/data/redis/data:/var/data"
+
+    mongo:
+        image: registry.cn-chengdu.aliyuncs.com/kerwincui/mongo:4.2.3
+        container_name: kw-mongo
+        network_mode: bridge
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: 1a2b3c4D
+        ports:
+            - 27017:27017
+        volumes:
+            - "/var/data/mongodb/db:/data/db"
+
+
+    mosquitto:
+        image: registry.cn-chengdu.aliyuncs.com/kerwincui/mosquitto:1.6.9
+        container_name: kw-mosquitto
+        network_mode: bridge
+        restart: always
+        ports:
+            - 1883:1883
+            - 9001:9001
+        volumes:
+            - "/var/data/mosquitto/data:/mosquitto/data"
+            - "/var/data/mosquitto/log:/mosquitto/log"
