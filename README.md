@@ -1,5 +1,5 @@
 
-## 平台简介
+## 平台简介 [码云最新源码>>](https://gitee.com/kerwincui/kwswitch)
 
 　　该智能开关平台包括服务端、硬件端、PC端和安卓端。硬件使用ESP8266模块，成本相对较低，可以发挥想象力，搭配各种传感器，实现自己的智能终端。【------[演示视频看这里 B站传送门](https://www.bilibili.com/video/BV1Qg4y1q7nk?from=search&seid=16334091011357696233)------】
 
