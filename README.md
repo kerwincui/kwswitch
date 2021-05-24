@@ -3,7 +3,7 @@
 
 　　该智能开关平台包括服务端、硬件端、PC端和安卓端。硬件使用ESP8266模块，成本相对较低，可以发挥想象力，搭配各种传感器，实现自己的智能终端。[码云最新源码>>](https://gitee.com/kerwincui/kwswitch)<br /><br />
   [演示视频看这里>>>](https://www.bilibili.com/video/BV1Qg4y1q7nk?from=search&seid=16334091011357696233)<br /><br />
-其他项目：[wumei-open](https://gitee.com/kerwincui/wumei-open)、[物美智能设备](http://wumei.live/) <br /><br />
+其他项目：[wumei-open](https://github.com/kerwincui/wumei-open)、[物美智能设备](http://wumei.live/) <br /><br />
 <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=P_oc91N6KC39zp2PEV_-BY3xMnAokeZ8&jump_from=webapi"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt=" 加入物联网QQ群" title=" 加入物联网QQ群"></a> <br />
 群号：1073236354
 
