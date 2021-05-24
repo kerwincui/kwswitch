@@ -1,7 +1,11 @@
 
 ## 平台简介 [码云最新源码>>](https://gitee.com/kerwincui/kwswitch)
 
-　　该智能开关平台包括服务端、硬件端、PC端和安卓端。硬件使用ESP8266模块，成本相对较低，可以发挥想象力，搭配各种传感器，实现自己的智能终端。【------[演示视频看这里 B站传送门](https://www.bilibili.com/video/BV1Qg4y1q7nk?from=search&seid=16334091011357696233)------】
+　　该智能开关平台包括服务端、硬件端、PC端和安卓端。硬件使用ESP8266模块，成本相对较低，可以发挥想象力，搭配各种传感器，实现自己的智能终端。<br />
+  [演示视频看这里>>>](https://www.bilibili.com/video/BV1Qg4y1q7nk?from=search&seid=16334091011357696233)<br />
+其他项目：[wumei-open](https://gitee.com/kerwincui/wumei-open)、[物美智能设备](http://wumei.live/) <br />
+<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=P_oc91N6KC39zp2PEV_-BY3xMnAokeZ8&jump_from=webapi"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="物联网-智能家居-kwswitc" title="物联网-智能家居-kwswitc"></a> <br />
+群号：1073236354
 
 **应用场景**：智能开关的应用场景比较广泛，一般家里通电即可使用的设备都能搭配该模块，升级为网络版，进行联网控制。常见的就是智能开关、智能插座和智能灯，搭配土壤湿度传感器可以实现智能浇灌，搭配温湿度传感器可以监控温湿度，其他传感器例如：触控开关、雨滴探测、声音传感器、光敏传感器、烟雾传感器、火焰报警、人体感应等等。
 
